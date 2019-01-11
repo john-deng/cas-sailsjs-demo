@@ -16,7 +16,6 @@
     "sails-hook-sockets": "^1.5.5",
     "grunt": "^1.0.1",
     "session-memory-store": "^0.2.2"
-    
   },
   "devDependencies": {
     "@sailshq/eslint": "^4.19.3",
