@@ -1,3 +1,6 @@
+
+var http = require('../../../config/http');
+
 module.exports = {
 
 
@@ -35,13 +38,18 @@ actually logged in.  (If they weren't, then this action is just a no-op.)`,
   fn: async function () {
 
     // Clear the `userId` property from this session.
-    delete this.req.session.userId;
+    console.log('logout: this.req.session: ' + this.req.session)
+    http.casClient.logout()(this.req, this.res);
+    console.log('logged out, this.req.session: ' + this.req.session)
 
+    // delete this.req.session.userId;
+    
     // Then finish up, sending an appropriate response.
     // > Under the covers, this persists the now-logged-out session back
     // > to the underlying session store.
     if (!this.req.wantsJSON) {
-      throw {redirect: '/login'};
+      console.log('redirect to /')
+      throw {redirect: '/'};
     }
 
   }

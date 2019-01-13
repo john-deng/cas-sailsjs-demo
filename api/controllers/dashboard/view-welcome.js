@@ -17,11 +17,12 @@ module.exports = {
   },
 
 
-  fn: async function () {
+  default: async function (req, res) {
+    console.log("default ...");
+  },
 
-    return {};
-
+  main: async function (req, res) {
+    console.log("main ...");
   }
-
 
 };
